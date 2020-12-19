@@ -15,7 +15,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to<a href="https://nextjs.org"> My New App</a>
+          Hi Dawn <a href="https://nextjs.org"> I edited my live page</a>
         </h1>
 
         <p className={styles.description}>
@@ -30,7 +30,15 @@ export default function Home() {
           )}
         </div>
         <div>
-          {auth.user ? <p>Hello {auth.user.displayName}</p> : 'not logged in'}
+          {auth.user ? (
+            <div>
+              {' '}
+              <p>Hello {auth.user.displayName}</p>{' '}
+              <img src={auth.user.photoURL} alt="" srcset="" />{' '}
+            </div>
+          ) : (
+            'not logged in'
+          )}
         </div>
       </main>
 
