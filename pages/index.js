@@ -1,57 +1,44 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import { auth } from 'firebase';
 import { useAuth } from '../lib/auth';
+import { Text, Button, ButtonGroup } from '@chakra-ui/react';
 
 export default function Home() {
   const auth = useAuth();
   console.log(auth);
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>We Building Stuff Here</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+    <div>
+      <main>
+        <h1>
           Hi Dawn <a href="https://nextjs.org"> I edited my live page</a>
         </h1>
 
-        <p className={styles.description}>
-          Get started by <code className={styles.code}>loging In</code>
+        <p>
+          Get started by <code>loging In</code>
         </p>
 
         <div style={{ display: 'flex' }}>
           {!auth.user ? (
-            <button onClick={(e) => auth.signinWithGithub()}>Log In</button>
+            <Button colorScheme="blue" onClick={(e) => auth.signinWithGithub()}>
+              Log In
+            </Button>
           ) : (
-            <button onClick={(e) => auth.signOut()}>Sign Out</button>
+            <Button colorScheme="green" onClick={(e) => auth.signOut()}>
+              Sign Out
+            </Button>
           )}
         </div>
         <div>
           {auth.user ? (
             <div>
               {' '}
-              <p>Hello {auth.user.displayName}</p>{' '}
-              <img src={auth.user.photoURL} alt="" srcset="" />{' '}
+              <Text color="cyan">Hello {auth.user.displayName}</Text>{' '}
+              <img src={auth.user.photoURL} alt="pic of user" />{' '}
             </div>
           ) : (
-            'not logged in'
+            <Text color="tomato">not logged in</Text>
           )}
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   );
 }
