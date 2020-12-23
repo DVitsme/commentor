@@ -17,6 +17,9 @@ import {
 import { DiTerminal } from 'react-icons/di';
 import { useAuth } from '@/lib/auth';
 
+import NextLink from 'next/link';
+import AddSiteModal from './AddSiteModal';
+
 const DashboardShell = ({ children }) => {
   const auth = useAuth();
   const { user, signOut } = auth;
@@ -30,6 +33,9 @@ const DashboardShell = ({ children }) => {
       >
         <Stack spacing={4} isInline alignItems="center">
           <Icon as={DiTerminal} color="cyan.500" boxSize="14" />
+          <NextLink href="/">
+            <Link>Home</Link>
+          </NextLink>
           <Link>Feedback</Link>
           <Link>Sites</Link>
         </Stack>
@@ -61,7 +67,12 @@ const DashboardShell = ({ children }) => {
               </BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          <Heading size="2xl">Sites</Heading>
+          <Flex justifyContent="space-between">
+            <Heading size="2xl" marginBottom={6}>
+              Sites
+            </Heading>
+            <AddSiteModal>+ Add Site</AddSiteModal>
+          </Flex>
           {children}
         </Flex>
       </Flex>

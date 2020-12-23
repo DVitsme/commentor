@@ -19,5 +19,5 @@ export default async (req, res) => {
   //   .catch((err) => {
   //     console.log(`Error getting doc: ${err}`);
   //   });
-  res.status(200).json(sites);
+  res.status(200).json({ sites });
 };
