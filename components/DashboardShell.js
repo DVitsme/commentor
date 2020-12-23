@@ -12,13 +12,14 @@ import {
   Box,
   Button,
   Text,
+  SkeletonCircle,
 } from '@chakra-ui/react';
 import { DiTerminal } from 'react-icons/di';
 import { useAuth } from '@/lib/auth';
 
 const DashboardShell = ({ children }) => {
   const auth = useAuth();
-  console.log(auth);
+  const { user, signOut } = auth;
   return (
     <Flex flexDirection="column">
       <Flex
@@ -33,8 +34,16 @@ const DashboardShell = ({ children }) => {
           <Link>Sites</Link>
         </Stack>
         <Flex alignItems="center">
-          <Link mr={4}>Account</Link>
-          <Avatar size="sm" src={auth.user.photoURL} />
+          {user && (
+            <Button variant="ghost" mr={2} onClick={() => signOut()}>
+              Log Out
+            </Button>
+          )}
+          {user !== null ? (
+            <Avatar size="sm" src={user.photoURL} />
+          ) : (
+            <SkeletonCircle size="9" />
+          )}
         </Flex>
       </Flex>
       <Flex backgroundColor="gray.100" p={8} height="90vh">
