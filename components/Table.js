@@ -8,6 +8,7 @@ export const Th = (props) => (
     color="gray.500"
     fontWeight="medium"
     px={4}
+    py={6}
     {...props}
   />
 );
