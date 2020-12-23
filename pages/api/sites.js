@@ -4,7 +4,6 @@ export default async (req, res) => {
   const snapshot = await db.collection('sites').get();
   const sites = [];
 
-  console.log(snapshot);
   snapshot.forEach((doc) => {
     sites.push({ id: doc.id, ...doc.data() });
   });
