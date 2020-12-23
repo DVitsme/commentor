@@ -20,26 +20,24 @@ const SkeletonRow = ({ width }) => (
 
 const SiteTableSkeleton = () => {
   return (
-    <div>
-      <Table>
-        <thead>
-          <Tr>
-            <Th>Name</Th>
-            <Th>Site Link</Th>
-            <Th>Feedback Link</Th>
-            <Th>Date Added</Th>
-            <Th>{''}</Th>
-          </Tr>
-        </thead>
-        <tbody>
-          <SkeletonRow width="75px" />
-          <SkeletonRow width="125px" />
-          <SkeletonRow width="125px" />
-          <SkeletonRow width="100px" />
-          <SkeletonRow width="75px" />
-        </tbody>
-      </Table>
-    </div>
+    <Table>
+      <thead>
+        <Tr>
+          <Th>Name</Th>
+          <Th>Site Link</Th>
+          <Th>Feedback Link</Th>
+          <Th>Date Added</Th>
+          <Th>{''}</Th>
+        </Tr>
+      </thead>
+      <tbody>
+        <SkeletonRow width="75px" />
+        <SkeletonRow width="125px" />
+        <SkeletonRow width="125px" />
+        <SkeletonRow width="100px" />
+        <SkeletonRow width="75px" />
+      </tbody>
+    </Table>
   );
 };
 
