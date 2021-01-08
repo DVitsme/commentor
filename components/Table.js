@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text } from "@chakra-ui/react";
 
 export const Th = (props) => (
   <Text
@@ -42,6 +42,7 @@ export const Table = (props) => (
     backgroundColor="white"
     ml={0}
     mr={0}
+    w="100%"
     borderRadius={8}
     boxShadow="0px 4px 10px rgba(0,0,0,.05)"
     {...props}
